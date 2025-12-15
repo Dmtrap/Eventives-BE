@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "users" ALTER COLUMN "status" DROP DEFAULT,
+ALTER COLUMN "roleId" DROP DEFAULT;

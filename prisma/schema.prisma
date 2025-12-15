@@ -1,0 +1,300 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  id                Int                 @id @default(autoincrement())
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  createdBy         String?
+  updatedBy         String?
+  userName          String
+  email             String              @unique
+  password          String
+  googleId          String?
+  roleId            Int
+  status            Boolean
+  Events            Events[]
+  ParticipantLists  ParticipantLists[]
+  TicketTransaction TicketTransaction[]
+  tokens            Token[]
+  userProfileId     UserProfile[]
+  role              Roles               @relation(fields: [roleId], references: [id])
+
+  @@map("users")
+}
+
+model UserProfile {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  createdBy     String?
+  updatedBy     String?
+  firstName     String
+  lastName      String
+  phoneNumber   String
+  address       String
+  avatar        String
+  title         String
+  affiliateLink String
+  userId        Int      @unique
+  user          Users    @relation(fields: [userId], references: [id])
+
+  @@map("userProfile")
+}
+
+model Roles {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  roleName    String   @unique
+  description String
+  createdBy   String?
+  updatedBy   String?
+  status      Boolean?
+  Users       Users[]
+
+  @@map("roles")
+}
+
+model Events {
+  id               Int                @id @default(autoincrement())
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  createdBy        String?
+  updatedBy        String?
+  eventName        String
+  eventDateStart   DateTime
+  eventDateEnd     DateTime
+  eventSeatMax     Int
+  eventSeatCount   Int
+  eventLogo        String
+  description      String?
+  userId           Int
+  eventCategoryId  Int
+  eventStatus      Boolean            @default(false)
+  Banner           Banner[]
+  EventTicket      EventTicket[]
+  eventCategory    EventCategories    @relation(fields: [eventCategoryId], references: [id])
+  user             Users              @relation(fields: [userId], references: [id])
+  ParticipantLists ParticipantLists[]
+  Schedule         Schedule[]
+  Speaker          Speaker[]
+  Sponsors         Sponsors[]
+  Venue            Venue[]
+
+  @@map("events")
+}
+
+model EventCategories {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  createdBy    String?
+  updatedBy    String?
+  categoryName String   @unique
+  status       Boolean
+  Events       Events[]
+
+  @@map("event-categories")
+}
+
+model Schedule {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  createdBy     String?
+  updatedBy     String?
+  activityStart DateTime
+  activityEnd   DateTime
+  speakerId     Int
+  eventId       Int
+  event         Events   @relation(fields: [eventId], references: [id])
+  speaker       Speaker  @relation(fields: [speakerId], references: [id])
+
+  @@map("schedule")
+}
+
+model Speaker {
+  id         Int        @id @default(autoincrement())
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  name       String
+  profession String
+  instagram  String?
+  x          String?
+  facebook   String?
+  linkedin   String?
+  photo      String?
+  eventId    Int
+  schedules  Schedule[]
+  event      Events     @relation(fields: [eventId], references: [id])
+
+  @@map("speaker")
+}
+
+model Venue {
+  id                 Int      @id @default(autoincrement())
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  createdBy          String?
+  updatedBy          String?
+  venueName          String
+  venueDesc          String
+  venueAddress       String
+  venueCity          String
+  venueGMapsLocation String
+  latitude           String
+  longitude          String
+  eventId            Int?
+  event              Events?  @relation(fields: [eventId], references: [id])
+
+  @@map("venue")
+}
+
+model Sponsors {
+  id             Int      @id @default(autoincrement())
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  createdBy      String?
+  updatedBy      String?
+  sponsorName    String
+  sponsorWebLink String
+  sponsorLogo    String
+  eventId        Int?
+  event          Events?  @relation(fields: [eventId], references: [id])
+
+  @@map("sponsors")
+}
+
+model ParticipantLists {
+  id             Int      @id @default(autoincrement())
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  createdBy      String?
+  updatedBy      String?
+  attendance     Boolean
+  attendanceTime DateTime
+  participantId  Int
+  eventId        Int
+  event          Events   @relation(fields: [eventId], references: [id])
+  participant    Users    @relation(fields: [participantId], references: [id])
+
+  @@map("participantLists")
+}
+
+model EventTicket {
+  id                Int                 @id @default(autoincrement())
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime            @updatedAt
+  createdBy         String?
+  updatedBy         String?
+  ticketPrice       Decimal
+  description       String
+  seatCount         Int
+  seatMax           Int
+  saleStart         DateTime
+  saleEnd           DateTime
+  status            Boolean
+  eventId           Int
+  ticketName        String
+  typeTicket        String
+  event             Events              @relation(fields: [eventId], references: [id])
+  TicketTransaction TicketTransaction[]
+
+  @@map("eventTicket")
+}
+
+model TicketTransaction {
+  id            Int         @id @default(autoincrement())
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  createdBy     String?
+  updatedBy     String?
+  participantId Int
+  ticketId      Int
+  participant   Users       @relation(fields: [participantId], references: [id])
+  ticket        EventTicket @relation(fields: [ticketId], references: [id])
+
+  @@map("ticketTransaction")
+}
+
+model Token {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  token     String   @unique
+  createdAt DateTime @default(now())
+  user      Users    @relation(fields: [userId], references: [id])
+
+  @@map("token")
+}
+
+model Galery {
+  id               Int            @id @default(autoincrement())
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  createdBy        String?
+  updatedBy        String?
+  namePicture      String
+  galeryCategoryId Int
+  bannerId         Int
+  banner           Banner         @relation(fields: [bannerId], references: [id])
+  galeryCategory   GaleryCategory @relation(fields: [galeryCategoryId], references: [id])
+
+  @@map("galery")
+}
+
+model GaleryCategory {
+  id             Int      @id @default(autoincrement())
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  createdBy      String?
+  updatedBy      String?
+  categoryGalery String
+  Galery         Galery[]
+
+  @@map("galeryCategory")
+}
+
+model Banner {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  createdBy    String?
+  updatedBy    String?
+  titleBanner  String
+  seatMax      Int
+  speakerCount Int
+  city         String
+  eventTime    DateTime
+  eventId      Int
+  event        Events   @relation(fields: [eventId], references: [id])
+  Galery       Galery[]
+
+  @@map("banner")
+}
+
+generator nestjsDto {
+  provider                        = "prisma-generator-nestjs-dto"
+  output                          = "../src/generated/nestjs-dto"
+  outputToNestJsResourceStructure = "false"
+  exportRelationModifierClasses   = "true"
+  reExport                        = "false"
+  createDtoPrefix                 = "Create"
+  updateDtoPrefix                 = "Update"
+  dtoSuffix                       = "Dto"
+  entityPrefix                    = ""
+  entitySuffix                    = ""
+  fileNamingStyle                 = "camel"
+}
