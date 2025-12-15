@@ -7,17 +7,16 @@ export class MailService {
 
   constructor() {
     this.transporter = nodemailer.createTransport({
-      host: "smtp-relay.brevo.com",
-      port: 587,
+      host: "#",
+      port: 123, //Gunakan port yang sesuai
       auth: {
-       user: "7b8fc8001@smtp-brevo.com",
-        pass: "dt7y8NXEzZsI1wGB"
+       user: "#",
+        pass: "#"
       },
     });
   }
 
   async sendMail(options: nodemailer.SendMailOptions) {
-    // Mengirim email dengan opsi yang diberikan
     return await this.transporter.sendMail(options);
   }
 }

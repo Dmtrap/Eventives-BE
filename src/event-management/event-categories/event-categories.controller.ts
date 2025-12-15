@@ -29,21 +29,6 @@ export class EventCategoriesController {
     return this.eventCategoriesService.createEventCategory(dto);
   }
 
-  // @Get()
-  // getEventCategories(
-  //   @Query() { offset, limit }: PaginationParamsDto,
-  //   @Query() { textSearch }: EventCategorySearchParamsDto,
-  // ) {
-  //   if (textSearch) {
-  //     return this.eventCategoriesService.searchEventCategoryByText(
-  //       textSearch,
-  //       offset,
-  //       limit,
-  //     );
-  //   }
-  //   return this.eventCategoriesService.getEventCategories(offset, limit);
-  // }
-
   @Get()
   getEventCategories(
     @Query() { where, orderBy },

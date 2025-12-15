@@ -9,7 +9,6 @@ import { UsersModule } from '../users/users.module';
 import { JwtStrategy } from './jwt/jwt.strategy';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Constants } from 'src/auth/constans/constans';
-// import { RolesGuard } from '../roles/guard/roles.guard';
 
 export const jwtSecret = 'zjP9h6ZI5LoSKCRj';
 
@@ -25,7 +24,6 @@ export const jwtSecret = 'zjP9h6ZI5LoSKCRj';
   ],
   controllers: [AuthController],
   providers: [AuthService,PrismaService,JwtStrategy,
-    // RolesGuard
   ],
 })
 export class AuthModule {}

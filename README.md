@@ -1,73 +1,101 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Backend API – Event Management
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Backend API untuk aplikasi manajemen event yang dibangun menggunakan **NestJS**, **PostgreSQL**, dan **Prisma ORM**. Repository ini berfungsi sebagai penyedia layanan API yang digunakan oleh frontend berbasis **Next.js**. Untuk menjalankan aplikasi secara penuh, backend dan frontend harus dijalankan secara bersamaan.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## 🚀 Tech Stack
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+* **NestJS** – Backend framework
+* **PostgreSQL** – Database
+* **Prisma ORM** – Database ORM & migration
+* **Swagger** – API Documentation
 
-## Installation
+---
+
+## 📦 Instalasi & Menjalankan Project
+
+### 1️⃣ Install dependency
 
 ```bash
-$ npm install
+npm install
 ```
 
-## Running the app
+### 2️⃣ Setup Environment Variable
+
+Buat file `.env` berdasarkan `.env.example` dan sesuaikan konfigurasi database serta service yang digunakan.
+
+Contoh minimal:
+
+```env
+DATABASE_URL="postgresql://user:password@localhost:5432/nama_database"
+```
+
+### 3️⃣ Jalankan migrasi database
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+npx prisma migrate dev
 ```
 
-## Test
+### 4️⃣ Jalankan server
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm run start
 ```
 
-## Support
+---
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## 📘 API Documentation (Swagger)
 
-## Stay in touch
+Setelah server berjalan, dokumentasi API dapat diakses melalui:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```
+http://localhost:3000/api
+```
 
-## License
+Swagger menampilkan seluruh endpoint, request body, serta response API secara lengkap.
 
-Nest is [MIT licensed](LICENSE).
+---
+
+## ⚙️ Konfigurasi Penting
+
+Beberapa konfigurasi pada project ini masih menggunakan tanda `#` sebagai **placeholder** dan **harus diisi secara manual** sebelum aplikasi dijalankan.
+
+### Cara menemukan konfigurasi yang perlu diisi:
+
+1. Buka project menggunakan **Visual Studio Code**
+2. Tekan `Ctrl + Shift + F`
+3. Ketik `#`
+4. Pilih hasil pencarian yang berada di file `.ts`
+5. Ganti nilai `#` sesuai dengan konfigurasi milik Anda
+
+### Contoh konfigurasi yang perlu diisi:
+
+* Redirect URL frontend
+* Reset password link
+* Konfigurasi email (SMTP host, user, password)
+* Google OAuth (Client ID, Client Secret, Callback URL)
+* JWT Secret
+
+> ⚠️ **Catatan:**
+> Sangat disarankan untuk memindahkan konfigurasi tersebut ke **Environment Variable (`.env`)**
+> agar lebih aman dan mudah dikonfigurasi.
+
+---
+
+## ⚠️ Catatan Penting
+
+* Pastikan database PostgreSQL sudah dibuat sebelum menjalankan migrasi
+* Jangan commit file `.env` ke repository publik
+* Gunakan Swagger untuk mencoba dan mengecek endpoint API
+
+---
+
+## 📌 Keterangan
+
+Repository ini merupakan **backend API** dan tidak menyediakan tampilan UI. Frontend aplikasi dibangun secara terpisah menggunakan **Next.js**.
+
+## 📸 Tampilan Aplikasi
+![alt text](src/images/Readme/Readme1.png)
+![alt text](src/images/Readme/Readme2.png)
+![alt text](src/images/Readme/Readme3.png)

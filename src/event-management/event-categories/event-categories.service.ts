@@ -29,21 +29,7 @@ export class EventCategoriesService {
       throw error;
     }
   }
-  // Old GET EventCategories Controller
-  // async getEventCategories(offset?: number, limit?: number) {
-  //   const [count, items] = await this.prisma.$transaction([
-  //     this.prisma.eventCategories.count(),
-  //     this.prisma.eventCategories.findMany({
-  //       take: limit,
-  //       skip: offset,
-  //     }),
-  //   ]);
 
-  //   return {
-  //     count,
-  //     items,
-  //   };
-  // }
   async getEventCategories({
     where,
     orderBy,
@@ -74,31 +60,7 @@ export class EventCategoriesService {
       },
     });
   }
-  // Old search logic
-  // async searchEventCategoryByText(
-  //   query: string,
-  //   offset?: number,
-  //   limit?: number,
-  // ) {
-  //   const [count, items] = await this.prisma.$transaction([
-  //     this.prisma.eventCategories.count(),
-  //     this.prisma.eventCategories.findMany({
-  //       where: {
-  //         categoryName: {
-  //           contains: query,
-  //           mode: 'insensitive',
-  //         },
-  //       },
-  //       take: limit,
-  //       skip: offset,
-  //     }),
-  //   ]);
 
-  //   return {
-  //     count,
-  //     items,
-  //   };
-  // }
   async searchEventCategoryByText({
     where,
     orderBy,

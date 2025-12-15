@@ -12,7 +12,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
         super ({
             clientID: Constants.GOOGLE_CLIENT_ID,
             clientSecret: Constants.GOOGLE_CLIENT_SECRET,
-            callbackURL: 'https://api.eventives.id/auth/google/callback',
+            callbackURL: Constants.GOOGLE_CALLBACK,
             scope: ['email', 'profile'],
         })
     }
@@ -30,11 +30,6 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
             firstName: name.givenName,
             lastName: name.familyName,
         });
-        // console.log('Access Token:', access_token);
-        // return done(null, {
-        //     access_token, 
-        //     profile
-        // });
         done(null, user);
     }
 }
